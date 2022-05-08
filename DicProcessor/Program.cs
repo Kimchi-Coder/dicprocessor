@@ -1,6 +1,17 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+// var builder = WebApplication.CreateBuilder(args);
+// var app = builder.Build();
+//
+// app.MapGet("/", () => "Hello World!");
+//
+// app.Run();
 
-app.MapGet("/", () => "Hello World!");
+using System.Xml;
+using DicProcessor.XMLProcessor;
 
-app.Run();
+public class Test
+{
+    public static void Main()
+    {
+        Processor.LoadAndSave();
+    }
+}

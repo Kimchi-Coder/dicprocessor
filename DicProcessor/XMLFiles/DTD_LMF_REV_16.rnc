@@ -1,0 +1,228 @@
+# LMF DTD
+
+# #################### Core package
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+LexicalResource =
+    element LexicalResource {
+        attlist.LexicalResource, feat*, GlobalInformation, Lexicon+, SenseAxis*, TransferAxis*, ContextAxis*
+    }
+attlist.LexicalResource &= [ a:defaultValue = "16" ] attribute dtdVersion { string "16" }?
+GlobalInformation = element GlobalInformation { attlist.GlobalInformation, feat* }
+attlist.GlobalInformation &= empty
+Lexicon =
+    element Lexicon {
+        attlist.Lexicon,
+        feat*,
+        LexicalEntry+,
+        SubcategorizationFrame*,
+        SubcategorizationFrameSet*,
+        SemanticPredicate*,
+        Synset*,
+        SynSemCorrespondence*,
+        MorphologicalPattern*,
+        MWEPattern*,
+        ConstraintSet*
+    }
+attlist.Lexicon &= empty
+LexicalEntry =
+    element LexicalEntry {
+        attlist.LexicalEntry,
+        feat*,
+        Lemma,
+        WordForm*,
+        Stem*,
+        ListOfComponents?,
+        RelatedForm*,
+        TransformCategory*,
+        Sense*,
+        SyntacticBehaviour*
+    }
+attlist.LexicalEntry &=
+    attribute id { xsd:ID }?,
+    attribute morphologicalPatterns { xsd:IDREFS }?,
+    attribute mwePattern { xsd:IDREF }?
+Sense =
+    element Sense {
+        attlist.Sense,
+        feat*,
+        Sense*,
+        Equivalent*,
+        Context*,
+        SubjectField*,
+        PredicativeRepresentation*,
+        SenseExample*,
+        Definition*,
+        SenseRelation*,
+        MonolingualExternalRef*
+    }
+attlist.Sense &=
+    attribute id { xsd:ID }?,
+    attribute synset { xsd:IDREF }?
+Definition = element Definition { attlist.Definition, feat*, Statement*, TextRepresentation* }
+attlist.Definition &= empty
+Statement = element Statement { attlist.Statement, feat*, TextRepresentation* }
+attlist.Statement &= empty
+TextRepresentation = element TextRepresentation { attlist.TextRepresentation, feat* }
+attlist.TextRepresentation &= empty
+# #################### Package for Morphology
+Lemma = element Lemma { attlist.Lemma, feat*, FormRepresentation* }
+attlist.Lemma &= empty
+WordForm = element WordForm { attlist.WordForm, feat*, FormRepresentation* }
+attlist.WordForm &= empty
+Stem = element Stem { attlist.Stem, feat*, FormRepresentation*, GrammaticalFeatures* }
+attlist.Stem &= empty
+FormRepresentation = element FormRepresentation { attlist.FormRepresentation, feat* }
+attlist.FormRepresentation &= empty
+RelatedForm = element RelatedForm { attlist.RelatedForm, feat*, FormRepresentation* }
+attlist.RelatedForm &= attribute targets { xsd:IDREFS }?
+ListOfComponents = element ListOfComponents { attlist.ListOfComponents, feat*, Component+ }
+attlist.ListOfComponents &= empty
+Component = element Component { attlist.Component, feat* }
+attlist.Component &= attribute entry { xsd:IDREF }
+# #################### Package for MRD
+Equivalent = element Equivalent { attlist.Equivalent, feat*, TextRepresentation* }
+attlist.Equivalent &= empty
+Context = element Context { attlist.Context, feat*, TextRepresentation* }
+attlist.Context &= empty
+SubjectField = element SubjectField { attlist.SubjectField, feat*, SubjectField* }
+attlist.SubjectField &= empty
+# #################### Package for Syntax
+SyntacticBehaviour = element SyntacticBehaviour { attlist.SyntacticBehaviour, feat* }
+attlist.SyntacticBehaviour &=
+    attribute id { xsd:ID }?,
+    attribute senses { xsd:IDREFS }?,
+    attribute subcategorizationFrames { xsd:IDREFS }?,
+    attribute subcategorizationFrameSets { xsd:IDREFS }?
+SubcategorizationFrame =
+    element SubcategorizationFrame { attlist.SubcategorizationFrame, feat*, LexemeProperty?, SyntacticArgument* }
+attlist.SubcategorizationFrame &=
+    attribute id { xsd:ID }?,
+    attribute inherit { xsd:IDREFS }?
+LexemeProperty = element LexemeProperty { attlist.LexemeProperty, feat* }
+attlist.LexemeProperty &= empty
+SyntacticArgument = element SyntacticArgument { attlist.SyntacticArgument, feat* }
+attlist.SyntacticArgument &=
+    attribute id { xsd:ID }?,
+    attribute target { xsd:IDREF }?
+SubcategorizationFrameSet = element SubcategorizationFrameSet { attlist.SubcategorizationFrameSet, feat*, SynArgMap* }
+attlist.SubcategorizationFrameSet &=
+    attribute id { xsd:ID }?,
+    attribute subcategorizationFrames { xsd:IDREFS }?,
+    attribute inherit { xsd:IDREFS }?
+SynArgMap = element SynArgMap { attlist.SynArgMap, feat* }
+attlist.SynArgMap &=
+    attribute arg1 { xsd:IDREF },
+    attribute arg2 { xsd:IDREF }
+# #################### Package for Semantics
+PredicativeRepresentation = element PredicativeRepresentation { attlist.PredicativeRepresentation, feat* }
+attlist.PredicativeRepresentation &=
+    attribute predicate { xsd:IDREF },
+    attribute correspondences { xsd:IDREFS }
+SemanticPredicate =
+    element SemanticPredicate { attlist.SemanticPredicate, feat*, Definition*, SemanticArgument*, PredicateRelation* }
+attlist.SemanticPredicate &=
+    attribute id { xsd:ID },
+    attribute semanticTypes { xsd:IDREFS }?
+SemanticArgument = element SemanticArgument { attlist.SemanticArgument, feat*, ArgumentRelation* }
+attlist.SemanticArgument &=
+    attribute id { xsd:ID }?,
+    attribute semanticTypes { xsd:IDREFS }?
+ArgumentRelation = element ArgumentRelation { attlist.ArgumentRelation, feat* }
+attlist.ArgumentRelation &= attribute targets { xsd:IDREFS }?
+SynSemCorrespondence = element SynSemCorrespondence { attlist.SynSemCorrespondence, feat*, SynSemArgMap* }
+attlist.SynSemCorrespondence &= attribute id { xsd:ID }
+SynSemArgMap = element SynSemArgMap { attlist.SynSemArgMap, feat* }
+attlist.SynSemArgMap &= empty
+PredicateRelation = element PredicateRelation { attlist.PredicateRelation, feat* }
+attlist.PredicateRelation &= attribute targets { xsd:IDREFS }?
+SenseExample = element SenseExample { attlist.SenseExample, feat* }
+attlist.SenseExample &= attribute id { xsd:ID }?
+Synset = element Synset { attlist.Synset, feat*, Definition*, SynsetRelation*, MonolingualExternalRef* }
+attlist.Synset &= attribute id { xsd:ID }?
+SynsetRelation = element SynsetRelation { attlist.SynsetRelation, feat* }
+attlist.SynsetRelation &= attribute targets { xsd:IDREFS }?
+MonolingualExternalRef = element MonolingualExternalRef { attlist.MonolingualExternalRef, feat* }
+attlist.MonolingualExternalRef &= empty
+SenseRelation = element SenseRelation { attlist.SenseRelation, feat* }
+attlist.SenseRelation &= attribute targets { xsd:IDREFS }
+# #################### Package for Multilingual notations
+SenseAxis = element SenseAxis { attlist.SenseAxis, feat*, SenseAxisRelation*, InterlingualExternalRef* }
+attlist.SenseAxis &=
+    attribute id { xsd:ID }?,
+    attribute senses { xsd:IDREFS }?,
+    attribute synsets { xsd:IDREFS }?
+InterlingualExternalRef = element InterlingualExternalRef { attlist.InterlingualExternalRef, feat* }
+attlist.InterlingualExternalRef &= empty
+SenseAxisRelation = element SenseAxisRelation { attlist.SenseAxisRelation, feat* }
+attlist.SenseAxisRelation &= attribute targets { xsd:IDREFS }
+TransferAxis = element TransferAxis { attlist.TransferAxis, feat*, TransferAxisRelation*, SourceTest*, TargetTest* }
+attlist.TransferAxis &=
+    attribute id { xsd:ID }?,
+    attribute syntacticBehaviours { xsd:IDREFS }?
+TransferAxisRelation = element TransferAxisRelation { attlist.TransferAxisRelation, feat* }
+attlist.TransferAxisRelation &= attribute targets { xsd:IDREFS }
+SourceTest = element SourceTest { attlist.SourceTest, feat* }
+attlist.SourceTest &= attribute syntacticBehaviours { xsd:IDREFS }
+TargetTest = element TargetTest { attlist.TargetTest, feat* }
+attlist.TargetTest &= attribute syntacticBehaviours { xsd:IDREFS }
+ContextAxis = element ContextAxis { attlist.ContextAxis, feat*, ContextAxisRelation* }
+attlist.ContextAxis &=
+    attribute id { xsd:ID }?,
+    attribute examples { xsd:IDREFS }?
+ContextAxisRelation = element ContextAxisRelation { attlist.ContextAxisRelation, feat* }
+attlist.ContextAxisRelation &= attribute targets { xsd:IDREFS }
+# #################### Package for morphological patterns
+MorphologicalPattern =
+    element MorphologicalPattern {
+        attlist.MorphologicalPattern, feat*, TransformSet*, TransformCategory*, Affix*, AffixSlot*, AffixTemplate*
+    }
+attlist.MorphologicalPattern &= attribute id { xsd:ID }?
+TransformSet = element TransformSet { attlist.TransformSet, feat*, Process*, GrammaticalFeatures*, TransformCategory* }
+attlist.TransformSet &= empty
+GrammaticalFeatures = element GrammaticalFeatures { attlist.GrammaticalFeatures, feat* }
+attlist.GrammaticalFeatures &= empty
+Process = element Process { attlist.Process, feat*, Condition* }
+attlist.Process &= empty
+Condition = element Condition { attlist.Condition, feat*, GrammaticalFeatures*, TransformCategory* }
+attlist.Condition &= empty
+Affix = element Affix { attlist.Affix, feat*, AffixAllomorph*, GrammaticalFeatures* }
+attlist.Affix &= empty
+AffixAllomorph = element AffixAllomorph { attlist.AffixAllomorph, feat*, FormRepresentation*, Condition* }
+attlist.AffixAllomorph &= empty
+AffixTemplate = element AffixTemplate { attlist.AffixTemplate, feat*, TemplateSlot* }
+attlist.AffixTemplate &= empty
+TemplateSlot = element TemplateSlot { attlist.TemplateSlot, feat*, Affix* }
+attlist.TemplateSlot &= attribute affixslots { xsd:IDREFS }?
+AffixSlot = element AffixSlot { attlist.AffixSlot, feat* }
+attlist.AffixSlot &= attribute affixs { xsd:IDREFS }?
+TransformCategory = element TransformCategory { attlist.TransformCategory, feat* }
+attlist.TransformCategory &= empty
+# #################### Package for MWE patterns
+MWEPattern = element MWEPattern { attlist.MWEPattern, feat*, MWENode* }
+attlist.MWEPattern &= attribute id { xsd:ID }
+MWENode = element MWENode { attlist.MWENode, feat*, MWEEdge*, MWELex }
+attlist.MWENode &= empty
+MWEEdge = element MWEEdge { attlist.MWEEdge, feat*, MWENode* }
+attlist.MWEEdge &= empty
+MWELex = element MWELex { attlist.MWELex, feat* }
+attlist.MWELex &= empty
+# #################### Package for Constraint expression
+ConstraintSet = element ConstraintSet { attlist.ConstraintSet, feat*, Constraint* }
+attlist.ConstraintSet &= empty
+Constraint = element Constraint { attlist.Constraint, feat*, LogicalOperation* }
+attlist.Constraint &= attribute id { xsd:ID }?
+LogicalOperation = element LogicalOperation { attlist.LogicalOperation, feat*, AttributeValuation*, Constraint* }
+attlist.LogicalOperation &= attribute constraints { xsd:IDREFS }?
+AttributeValuation = element AttributeValuation { attlist.AttributeValuation, feat* }
+attlist.AttributeValuation &= empty
+# #################### for data category adornment: feat stands for feature
+feat = element feat { attlist.feat, empty }
+# att=constant to be taken from the DataCategoryRegistry
+
+#  val=free string or constant to be taken from the DCR
+attlist.feat &=
+    attribute att { text },
+    attribute val { text }
+start = LexicalResource

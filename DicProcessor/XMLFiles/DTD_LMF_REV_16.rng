@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LMF DTD -->
+<!-- #################### Core package -->
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <define name="LexicalResource">
+        <element name="LexicalResource">
+            <ref name="attlist.LexicalResource"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <ref name="GlobalInformation"/>
+            <oneOrMore>
+                <ref name="Lexicon"/>
+            </oneOrMore>
+            <zeroOrMore>
+                <ref name="SenseAxis"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransferAxis"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="ContextAxis"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.LexicalResource" combine="interleave">
+        <optional>
+            <attribute name="dtdVersion" a:defaultValue="16">
+                <value type="string" datatypeLibrary="">16</value>
+            </attribute>
+        </optional>
+    </define>
+    <define name="GlobalInformation">
+        <element name="GlobalInformation">
+            <ref name="attlist.GlobalInformation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.GlobalInformation" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Lexicon">
+        <element name="Lexicon">
+            <ref name="attlist.Lexicon"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <oneOrMore>
+                <ref name="LexicalEntry"/>
+            </oneOrMore>
+            <zeroOrMore>
+                <ref name="SubcategorizationFrame"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SubcategorizationFrameSet"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SemanticPredicate"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Synset"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SynSemCorrespondence"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MorphologicalPattern"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MWEPattern"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="ConstraintSet"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Lexicon" combine="interleave">
+        <empty/>
+    </define>
+    <define name="LexicalEntry">
+        <element name="LexicalEntry">
+            <ref name="attlist.LexicalEntry"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <ref name="Lemma"/>
+            <zeroOrMore>
+                <ref name="WordForm"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Stem"/>
+            </zeroOrMore>
+            <optional>
+                <ref name="ListOfComponents"/>
+            </optional>
+            <zeroOrMore>
+                <ref name="RelatedForm"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransformCategory"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Sense"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SyntacticBehaviour"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.LexicalEntry" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="morphologicalPatterns">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="mwePattern">
+                <data type="IDREF"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="Sense">
+        <element name="Sense">
+            <ref name="attlist.Sense"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Sense"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Equivalent"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Context"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SubjectField"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="PredicativeRepresentation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SenseExample"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Definition"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SenseRelation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MonolingualExternalRef"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Sense" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="synset">
+                <data type="IDREF"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="Definition">
+        <element name="Definition">
+            <ref name="attlist.Definition"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Statement"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TextRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Definition" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Statement">
+        <element name="Statement">
+            <ref name="attlist.Statement"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TextRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Statement" combine="interleave">
+        <empty/>
+    </define>
+    <define name="TextRepresentation">
+        <element name="TextRepresentation">
+            <ref name="attlist.TextRepresentation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TextRepresentation" combine="interleave">
+        <empty/>
+    </define>
+    <!-- #################### Package for Morphology -->
+    <define name="Lemma">
+        <element name="Lemma">
+            <ref name="attlist.Lemma"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="FormRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Lemma" combine="interleave">
+        <empty/>
+    </define>
+    <define name="WordForm">
+        <element name="WordForm">
+            <ref name="attlist.WordForm"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="FormRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.WordForm" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Stem">
+        <element name="Stem">
+            <ref name="attlist.Stem"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="FormRepresentation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="GrammaticalFeatures"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Stem" combine="interleave">
+        <empty/>
+    </define>
+    <define name="FormRepresentation">
+        <element name="FormRepresentation">
+            <ref name="attlist.FormRepresentation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.FormRepresentation" combine="interleave">
+        <empty/>
+    </define>
+    <define name="RelatedForm">
+        <element name="RelatedForm">
+            <ref name="attlist.RelatedForm"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="FormRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.RelatedForm" combine="interleave">
+        <optional>
+            <attribute name="targets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="ListOfComponents">
+        <element name="ListOfComponents">
+            <ref name="attlist.ListOfComponents"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <oneOrMore>
+                <ref name="Component"/>
+            </oneOrMore>
+        </element>
+    </define>
+    <define name="attlist.ListOfComponents" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Component">
+        <element name="Component">
+            <ref name="attlist.Component"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Component" combine="interleave">
+        <attribute name="entry">
+            <data type="IDREF"/>
+        </attribute>
+    </define>
+    <!-- #################### Package for MRD -->
+    <define name="Equivalent">
+        <element name="Equivalent">
+            <ref name="attlist.Equivalent"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TextRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Equivalent" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Context">
+        <element name="Context">
+            <ref name="attlist.Context"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TextRepresentation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Context" combine="interleave">
+        <empty/>
+    </define>
+    <define name="SubjectField">
+        <element name="SubjectField">
+            <ref name="attlist.SubjectField"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SubjectField"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SubjectField" combine="interleave">
+        <empty/>
+    </define>
+    <!-- #################### Package for Syntax -->
+    <define name="SyntacticBehaviour">
+        <element name="SyntacticBehaviour">
+            <ref name="attlist.SyntacticBehaviour"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SyntacticBehaviour" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="senses">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="subcategorizationFrames">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="subcategorizationFrameSets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SubcategorizationFrame">
+        <element name="SubcategorizationFrame">
+            <ref name="attlist.SubcategorizationFrame"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <optional>
+                <ref name="LexemeProperty"/>
+            </optional>
+            <zeroOrMore>
+                <ref name="SyntacticArgument"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SubcategorizationFrame" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="inherit">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="LexemeProperty">
+        <element name="LexemeProperty">
+            <ref name="attlist.LexemeProperty"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.LexemeProperty" combine="interleave">
+        <empty/>
+    </define>
+    <define name="SyntacticArgument">
+        <element name="SyntacticArgument">
+            <ref name="attlist.SyntacticArgument"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SyntacticArgument" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="target">
+                <data type="IDREF"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SubcategorizationFrameSet">
+        <element name="SubcategorizationFrameSet">
+            <ref name="attlist.SubcategorizationFrameSet"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SynArgMap"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SubcategorizationFrameSet" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="subcategorizationFrames">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="inherit">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SynArgMap">
+        <element name="SynArgMap">
+            <ref name="attlist.SynArgMap"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SynArgMap" combine="interleave">
+        <attribute name="arg1">
+            <data type="IDREF"/>
+        </attribute>
+        <attribute name="arg2">
+            <data type="IDREF"/>
+        </attribute>
+    </define>
+    <!-- #################### Package for Semantics -->
+    <define name="PredicativeRepresentation">
+        <element name="PredicativeRepresentation">
+            <ref name="attlist.PredicativeRepresentation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.PredicativeRepresentation" combine="interleave">
+        <attribute name="predicate">
+            <data type="IDREF"/>
+        </attribute>
+        <attribute name="correspondences">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <define name="SemanticPredicate">
+        <element name="SemanticPredicate">
+            <ref name="attlist.SemanticPredicate"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Definition"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SemanticArgument"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="PredicateRelation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SemanticPredicate" combine="interleave">
+        <attribute name="id">
+            <data type="ID"/>
+        </attribute>
+        <optional>
+            <attribute name="semanticTypes">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SemanticArgument">
+        <element name="SemanticArgument">
+            <ref name="attlist.SemanticArgument"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="ArgumentRelation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SemanticArgument" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="semanticTypes">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="ArgumentRelation">
+        <element name="ArgumentRelation">
+            <ref name="attlist.ArgumentRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.ArgumentRelation" combine="interleave">
+        <optional>
+            <attribute name="targets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SynSemCorrespondence">
+        <element name="SynSemCorrespondence">
+            <ref name="attlist.SynSemCorrespondence"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SynSemArgMap"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SynSemCorrespondence" combine="interleave">
+        <attribute name="id">
+            <data type="ID"/>
+        </attribute>
+    </define>
+    <define name="SynSemArgMap">
+        <element name="SynSemArgMap">
+            <ref name="attlist.SynSemArgMap"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SynSemArgMap" combine="interleave">
+        <empty/>
+    </define>
+    <define name="PredicateRelation">
+        <element name="PredicateRelation">
+            <ref name="attlist.PredicateRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.PredicateRelation" combine="interleave">
+        <optional>
+            <attribute name="targets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SenseExample">
+        <element name="SenseExample">
+            <ref name="attlist.SenseExample"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SenseExample" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="Synset">
+        <element name="Synset">
+            <ref name="attlist.Synset"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Definition"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SynsetRelation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MonolingualExternalRef"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Synset" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="SynsetRelation">
+        <element name="SynsetRelation">
+            <ref name="attlist.SynsetRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SynsetRelation" combine="interleave">
+        <optional>
+            <attribute name="targets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="MonolingualExternalRef">
+        <element name="MonolingualExternalRef">
+            <ref name="attlist.MonolingualExternalRef"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.MonolingualExternalRef" combine="interleave">
+        <empty/>
+    </define>
+    <define name="SenseRelation">
+        <element name="SenseRelation">
+            <ref name="attlist.SenseRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SenseRelation" combine="interleave">
+        <attribute name="targets">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <!-- #################### Package for Multilingual notations -->
+    <define name="SenseAxis">
+        <element name="SenseAxis">
+            <ref name="attlist.SenseAxis"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SenseAxisRelation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="InterlingualExternalRef"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SenseAxis" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="senses">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="synsets">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="InterlingualExternalRef">
+        <element name="InterlingualExternalRef">
+            <ref name="attlist.InterlingualExternalRef"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.InterlingualExternalRef" combine="interleave">
+        <empty/>
+    </define>
+    <define name="SenseAxisRelation">
+        <element name="SenseAxisRelation">
+            <ref name="attlist.SenseAxisRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SenseAxisRelation" combine="interleave">
+        <attribute name="targets">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <define name="TransferAxis">
+        <element name="TransferAxis">
+            <ref name="attlist.TransferAxis"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransferAxisRelation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="SourceTest"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TargetTest"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TransferAxis" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="syntacticBehaviours">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="TransferAxisRelation">
+        <element name="TransferAxisRelation">
+            <ref name="attlist.TransferAxisRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TransferAxisRelation" combine="interleave">
+        <attribute name="targets">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <define name="SourceTest">
+        <element name="SourceTest">
+            <ref name="attlist.SourceTest"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.SourceTest" combine="interleave">
+        <attribute name="syntacticBehaviours">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <define name="TargetTest">
+        <element name="TargetTest">
+            <ref name="attlist.TargetTest"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TargetTest" combine="interleave">
+        <attribute name="syntacticBehaviours">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <define name="ContextAxis">
+        <element name="ContextAxis">
+            <ref name="attlist.ContextAxis"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="ContextAxisRelation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.ContextAxis" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+        <optional>
+            <attribute name="examples">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="ContextAxisRelation">
+        <element name="ContextAxisRelation">
+            <ref name="attlist.ContextAxisRelation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.ContextAxisRelation" combine="interleave">
+        <attribute name="targets">
+            <data type="IDREFS"/>
+        </attribute>
+    </define>
+    <!-- #################### Package for morphological patterns -->
+    <define name="MorphologicalPattern">
+        <element name="MorphologicalPattern">
+            <ref name="attlist.MorphologicalPattern"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransformSet"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransformCategory"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Affix"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="AffixSlot"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="AffixTemplate"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.MorphologicalPattern" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="TransformSet">
+        <element name="TransformSet">
+            <ref name="attlist.TransformSet"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Process"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="GrammaticalFeatures"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransformCategory"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TransformSet" combine="interleave">
+        <empty/>
+    </define>
+    <define name="GrammaticalFeatures">
+        <element name="GrammaticalFeatures">
+            <ref name="attlist.GrammaticalFeatures"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.GrammaticalFeatures" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Process">
+        <element name="Process">
+            <ref name="attlist.Process"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Condition"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Process" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Condition">
+        <element name="Condition">
+            <ref name="attlist.Condition"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="GrammaticalFeatures"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TransformCategory"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Condition" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Affix">
+        <element name="Affix">
+            <ref name="attlist.Affix"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="AffixAllomorph"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="GrammaticalFeatures"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Affix" combine="interleave">
+        <empty/>
+    </define>
+    <define name="AffixAllomorph">
+        <element name="AffixAllomorph">
+            <ref name="attlist.AffixAllomorph"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="FormRepresentation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Condition"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.AffixAllomorph" combine="interleave">
+        <empty/>
+    </define>
+    <define name="AffixTemplate">
+        <element name="AffixTemplate">
+            <ref name="attlist.AffixTemplate"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="TemplateSlot"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.AffixTemplate" combine="interleave">
+        <empty/>
+    </define>
+    <define name="TemplateSlot">
+        <element name="TemplateSlot">
+            <ref name="attlist.TemplateSlot"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Affix"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TemplateSlot" combine="interleave">
+        <optional>
+            <attribute name="affixslots">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="AffixSlot">
+        <element name="AffixSlot">
+            <ref name="attlist.AffixSlot"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.AffixSlot" combine="interleave">
+        <optional>
+            <attribute name="affixs">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="TransformCategory">
+        <element name="TransformCategory">
+            <ref name="attlist.TransformCategory"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.TransformCategory" combine="interleave">
+        <empty/>
+    </define>
+    <!-- #################### Package for MWE patterns -->
+    <define name="MWEPattern">
+        <element name="MWEPattern">
+            <ref name="attlist.MWEPattern"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MWENode"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.MWEPattern" combine="interleave">
+        <attribute name="id">
+            <data type="ID"/>
+        </attribute>
+    </define>
+    <define name="MWENode">
+        <element name="MWENode">
+            <ref name="attlist.MWENode"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MWEEdge"/>
+            </zeroOrMore>
+            <ref name="MWELex"/>
+        </element>
+    </define>
+    <define name="attlist.MWENode" combine="interleave">
+        <empty/>
+    </define>
+    <define name="MWEEdge">
+        <element name="MWEEdge">
+            <ref name="attlist.MWEEdge"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="MWENode"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.MWEEdge" combine="interleave">
+        <empty/>
+    </define>
+    <define name="MWELex">
+        <element name="MWELex">
+            <ref name="attlist.MWELex"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.MWELex" combine="interleave">
+        <empty/>
+    </define>
+    <!-- #################### Package for Constraint expression -->
+    <define name="ConstraintSet">
+        <element name="ConstraintSet">
+            <ref name="attlist.ConstraintSet"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Constraint"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.ConstraintSet" combine="interleave">
+        <empty/>
+    </define>
+    <define name="Constraint">
+        <element name="Constraint">
+            <ref name="attlist.Constraint"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="LogicalOperation"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.Constraint" combine="interleave">
+        <optional>
+            <attribute name="id">
+                <data type="ID"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="LogicalOperation">
+        <element name="LogicalOperation">
+            <ref name="attlist.LogicalOperation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="AttributeValuation"/>
+            </zeroOrMore>
+            <zeroOrMore>
+                <ref name="Constraint"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.LogicalOperation" combine="interleave">
+        <optional>
+            <attribute name="constraints">
+                <data type="IDREFS"/>
+            </attribute>
+        </optional>
+    </define>
+    <define name="AttributeValuation">
+        <element name="AttributeValuation">
+            <ref name="attlist.AttributeValuation"/>
+            <zeroOrMore>
+                <ref name="feat"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="attlist.AttributeValuation" combine="interleave">
+        <empty/>
+    </define>
+    <!-- #################### for data category adornment: feat stands for feature -->
+    <define name="feat">
+        <element name="feat">
+            <ref name="attlist.feat"/>
+            <empty/>
+        </element>
+    </define>
+    <!-- att=constant to be taken from the DataCategoryRegistry -->
+    <!--  val=free string or constant to be taken from the DCR -->
+    <define name="attlist.feat" combine="interleave">
+        <attribute name="att"/>
+        <attribute name="val"/>
+    </define>
+    <start>
+        <choice>
+            <ref name="LexicalResource"/>
+        </choice>
+    </start>
+</grammar>
