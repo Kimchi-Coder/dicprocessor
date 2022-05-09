@@ -1,13 +1,13 @@
 using System.Xml.Serialization;
 
-namespace DicModels;
+namespace DicModels.XML;
 
     [XmlRoot(ElementName="feat")]
     public class FeatXml { 
 
         [XmlAttribute(AttributeName="att")] 
-        public string Att { get; set; } 
+        public string? Att { get; set; } 
 
         [XmlAttribute(AttributeName="val")] 
-        public int Val { get; set; } 
+        public string? Val { get; set; } 
     }

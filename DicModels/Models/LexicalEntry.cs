@@ -4,7 +4,9 @@ namespace DicModels;
 
 public class LexicalEntry
 {
-   [Key] public Guid uuid { get; set; } 
+   [Key] public Guid Uuid { get; set; } 
+   
+   public int? Id { get; set; }
    
    public List<Feat> Feats { get; set; }
    
@@ -14,7 +16,4 @@ public class LexicalEntry
    
    public List<Sense> Senses { get; set; }
    
-   public Att Att { get; set; }
-   
-   public Val Val { get; set; }
 }

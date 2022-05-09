@@ -1,3 +1,4 @@
+using DicModels.XML;
 using Microsoft.EntityFrameworkCore;
 
 namespace DicModels;

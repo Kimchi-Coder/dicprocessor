@@ -1,10 +1,10 @@
 using System.Xml.Serialization;
 
-namespace DicModels;
+namespace DicModels.XML;
 
 [XmlRoot(ElementName="Equivalent")]
 public class EquivalentXml
 {
     [XmlElement(ElementName="feat")] 
-    public List<FeatXml> Feat { get; set; }
+    public List<FeatXml>? Feat { get; set; }
 }

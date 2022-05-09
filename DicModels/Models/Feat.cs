@@ -4,9 +4,9 @@ namespace DicModels;
 
 public class Feat
 {
-    [Key] public Guid uuid { get; set; }
+    [Key] public Guid Uuid { get; set; }
     
-    public Att att { get; set; }
+    public string Att { get; set; }
     
-    public Val val { get; set; }
+    public string Val { get; set; }
 }
