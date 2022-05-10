@@ -2,10 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DicModels;
 
-public class Sense
+public class Sense: BaseModel
 {
-   [Key] private Guid uuid { get; set; }
-   
    public List<Feat> Feat { get; set; } 
 
    public List<SenseExample> SenseExample { get; set; } 

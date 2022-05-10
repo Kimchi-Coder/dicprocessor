@@ -2,10 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DicModels;
 
-public class LexicalEntry
+public class LexicalEntry: BaseModel
 {
-   [Key] public Guid Uuid { get; set; } 
-   
    public int? Id { get; set; }
    
    public List<Feat> Feats { get; set; }
