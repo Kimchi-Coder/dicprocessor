@@ -6,5 +6,5 @@ namespace DicModels.XML;
 public class WordFormXml { 
 
     [XmlElement(ElementName="feat")] 
-    public List<FeatXml>? Feat { get; set; } 
+    public List<FeatXml>? Feats { get; set; } 
 }

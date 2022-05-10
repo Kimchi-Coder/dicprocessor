@@ -22,7 +22,5 @@ public class BaseModel
     public DateTime UpdatedOn {get; set; }
     
     [JsonIgnore]
-    public Boolean IsDeleted {get; set; }
-    
-    
+    public bool IsDeleted {get; set; }
 }

@@ -6,13 +6,13 @@ namespace DicModels.XML;
 public class SenseXml { 
 
     [XmlElement(ElementName="feat")] 
-    public List<FeatXml>? Feat { get; set; } 
+    public List<FeatXml>? FeatsXml { get; set; } 
 
     [XmlElement(ElementName="SenseExample")] 
-    public List<SenseExampleXml>? SenseExample { get; set; } 
+    public List<SenseExampleXml>? SenseExamples { get; set; } 
 
     [XmlElement(ElementName="Equivalent")] 
-    public List<EquivalentXml>? Equivalent { get; set; } 
+    public List<EquivalentXml>? Equivalents { get; set; } 
 
     [XmlAttribute(AttributeName="att")] 
     public string? Att { get; set; } 
