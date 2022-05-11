@@ -12,10 +12,12 @@ public class LexicalEntryXml
     [XmlElement(ElementName = "WordForm")] public WordFormXml? WordFormXml { get; set; }
 
     [XmlElement(ElementName = "Sense")] public List<SenseXml>? SensesXml { get; set; }
+    
+    [XmlElement(ElementName = "RelatedForm")] public List<RelatedFormXml>? RelatedFormsXml { get; set; }
 
-    [XmlAttribute(AttributeName = "att")] public string? Att { get; set; }
+    [XmlAttribute(AttributeName = "att")] public string? AttXml { get; set; }
 
-    [XmlAttribute(AttributeName = "val")] public string? Val { get; set; }
+    [XmlAttribute(AttributeName = "val")] public string? ValXml { get; set; }
 }
 
 

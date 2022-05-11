@@ -9,14 +9,20 @@ public class SenseXml {
     public List<FeatXml>? FeatsXml { get; set; } 
 
     [XmlElement(ElementName="SenseExample")] 
-    public List<SenseExampleXml>? SenseExamples { get; set; } 
+    public List<SenseExampleXml>? SenseExamplesXml { get; set; } 
 
     [XmlElement(ElementName="Equivalent")] 
-    public List<EquivalentXml>? Equivalents { get; set; } 
+    public List<EquivalentXml>? EquivalentsXml { get; set; } 
 
+    [XmlElement(ElementName="Multimedia")] 
+    public List<MultimediaXml>? MultimediasXml { get; set; } 
+    
+    [XmlElement(ElementName="SenseRelation")] 
+    public List<SenseRelationXml>? SenseRelationsXml { get; set; } 
+    
     [XmlAttribute(AttributeName="att")] 
-    public string? Att { get; set; } 
+    public string? AttXml { get; set; } 
 
     [XmlAttribute(AttributeName="val")] 
-    public string? Val { get; set; } 
+    public string? ValXml { get; set; } 
 }

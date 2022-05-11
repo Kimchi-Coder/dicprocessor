@@ -6,7 +6,7 @@ namespace DicModels.XML;
 public class LexicalResourceXml
 {
     
-    [XmlElement(ElementName = "GlobalInformation")] public GlobalInformationXml? GlobalInformation { get; set; }
+    [XmlElement(ElementName = "GlobalInformation")] public GlobalInformationXml? GlobalInformationXml { get; set; }
     
-    [XmlElement(ElementName = "Lexicon")] public LexiconXml? Lexicon { get; set; }
+    [XmlElement(ElementName = "Lexicon")] public LexiconXml? LexiconXml { get; set; }
 }

@@ -9,7 +9,7 @@ public class WordFormBuilder
         WordForm wordForm = new();
         wordForm.Feats = new List<Feat>();
 
-        foreach (FeatXml featXml in w.Feats)
+        foreach (FeatXml featXml in w.FeatsXml)
         {
             Feat newFeat = FeatBuilder.BuildFeat(featXml);
             wordForm.Feats.Add(newFeat);

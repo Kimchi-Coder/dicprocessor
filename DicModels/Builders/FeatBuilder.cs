@@ -7,8 +7,8 @@ public class FeatBuilder
     public static Feat BuildFeat(FeatXml f)
     {
         Feat feat = new();
-        feat.Att = f.Att ?? string.Empty;
-        feat.Val = f.Val ?? string.Empty;
+        feat.Att = f.AttXml ?? string.Empty;
+        feat.Val = f.ValXml ?? string.Empty;
 
         return feat;
     }

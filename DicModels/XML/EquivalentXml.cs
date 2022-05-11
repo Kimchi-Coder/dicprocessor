@@ -6,5 +6,5 @@ namespace DicModels.XML;
 public class EquivalentXml
 {
     [XmlElement(ElementName="feat")] 
-    public List<FeatXml>? Feat { get; set; }
+    public List<FeatXml>? FeatsXml { get; set; }
 }

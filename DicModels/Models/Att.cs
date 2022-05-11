@@ -4,5 +4,5 @@ namespace DicModels;
 
 public class Att: BaseModel
 {
-    public UInt16 val { get; set; }
+    public string Attribute { get; set; }
 }

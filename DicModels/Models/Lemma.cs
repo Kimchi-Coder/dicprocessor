@@ -5,5 +5,5 @@ namespace DicModels;
 
 public class Lemma: BaseModel
 {
-   public FeatXml FeatXml { get; set; }
+   public Feat Feat { get; set; }
 }
