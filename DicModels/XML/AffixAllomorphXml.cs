@@ -9,5 +9,5 @@ public class AffixAllomorphXml
     
     [XmlElement(ElementName = "FormRepresentation")] public List<FormRepresentationXml>? FormRepresentationsXml { get; set; }
     
-    [XmlElement(ElementName = "Condition")] public List<ConditionXml>? ConditionsXml { get; set; }
+    // [XmlElement(ElementName = "Condition")] public List<ConditionXml>? ConditionsXml { get; set; }
 }

@@ -9,28 +9,30 @@ public class LexicalEntryBuilder
         LexicalEntry lexicalEntry = new();
         lexicalEntry.Att = l.AttXml ?? string.Empty;
         lexicalEntry.Val = l.ValXml ?? string.Empty;
-        lexicalEntry.Lemma = LemmaBuilder.BuildLemma(l.LemmaXml);
-        lexicalEntry.WordForm = WordFormBuilder.BuildWordForm(l.WordFormXml);
-        
+        if (l.LemmaXml != null) lexicalEntry.Lemma = LemmaBuilder.BuildLemma(l.LemmaXml);
+        if (l.WordFormXml != null) lexicalEntry.WordForm = WordFormBuilder.BuildWordForm(l.WordFormXml);
+
         lexicalEntry.Feats = new List<Feat>();
-        foreach (FeatXml featXml in l.FeatsXml)
-        {
-            Feat newFeat = FeatBuilder.BuildFeat(featXml);
-            lexicalEntry.Feats.Add(newFeat);
-        }
+        if (l.FeatsXml != null)
+            foreach (Feat newFeat in l.FeatsXml.Select(featXml => FeatBuilder.BuildFeat(featXml)))
+            {
+                lexicalEntry.Feats.Add(newFeat);
+            }
 
         lexicalEntry.Senses = new List<Sense>();
-        foreach (SenseXml senseXml in l.SensesXml)
-        {
-            Sense newSense = SenseBuilder.BuildSense(senseXml);
-            lexicalEntry.Senses.Add(newSense);
-        }
+        if (l.SensesXml != null)
+            foreach (Sense newSense in l.SensesXml.Select(senseXml => SenseBuilder.BuildSense(senseXml)))
+            {
+                lexicalEntry.Senses.Add(newSense);
+            }
+
         lexicalEntry.RelatedForms = new List<RelatedForm>();
-        foreach (RelatedFormXml relatedFormXml in l.RelatedFormsXml)
+        if (l.RelatedFormsXml == null) return lexicalEntry;
+        foreach (RelatedForm newRelatedForm in l.RelatedFormsXml.Select(relatedFormXml => RelatedFormBuilder.BuildRelatedForm(relatedFormXml)))
         {
-            RelatedForm newRelatedForm = RelatedFormBuilder.BuildRelatedForm(relatedFormXml);
             lexicalEntry.RelatedForms.Add(newRelatedForm);
         }
+
         return lexicalEntry;
     }
 }

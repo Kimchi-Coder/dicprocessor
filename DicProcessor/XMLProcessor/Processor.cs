@@ -28,7 +28,7 @@ public class Processor
 
       // Declare an object variable of the type to be deserialized.
       LexicalResourceXml? i;
-      string path = "/home/jh/Documents/coding/DicProcessor/DicProcessor/XMLFiles/test.xml";
+      string path = "C:\\Code\\dicprocessor\\DicProcessor\\XMLFiles\\5000_.xml";
 
 
       XmlReaderSettings settings = new XmlReaderSettings();
@@ -57,24 +57,33 @@ public class Processor
             Console.WriteLine($"{feat.Val} ");
          
          }
-         foreach (Feat feat in newLexicalEntry.WordForm.Feats)
+
+         if (newLexicalEntry is {WordForm.Feats: { }})
          {
-            Console.WriteLine($"{feat.Att} ");
-            Console.WriteLine($"{feat.Val} ");
-         
-         }
-         foreach (Sense sense in newLexicalEntry.Senses)
-         {
-            foreach (Equivalent equivalent in sense.Equivalents)
+            foreach (Feat feat in newLexicalEntry.WordForm.Feats)
             {
-               foreach (Feat feat in equivalent.Feats)
-               {
-                  Console.WriteLine($"{feat.Att} ");
-                  Console.WriteLine($"{feat.Val} ");
-               }
-            }
+               Console.WriteLine($"{feat.Att} ");
+               Console.WriteLine($"{feat.Val} ");
          
+            }
          }
+
+         if (newLexicalEntry is {Senses: { }})
+         {
+            foreach (Sense sense in newLexicalEntry.Senses)
+            {
+               if (sense.Equivalents != null)
+                  foreach (Equivalent equivalent in sense.Equivalents)
+                  {
+                     foreach (Feat feat in equivalent.Feats)
+                     {
+                        Console.WriteLine($"{feat.Att} ");
+                        Console.WriteLine($"{feat.Val} ");
+                     }
+                  }
+            }
+         }
+
       }
 
       static void ValidationCallBack(object sender, ValidationEventArgs e)
