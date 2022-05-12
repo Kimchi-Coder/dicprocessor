@@ -5,6 +5,6 @@ namespace DicModels.XML;
 [XmlRoot(ElementName="GlobalInformation")]
 public class GlobalInformationXml
 {
-    [XmlElement(ElementName = "feat")] public List<FeatXml>? Feats { get; set; } 
+    [XmlElement(ElementName = "feat")] public List<FeatXml>? FeatsXml { get; set; } 
     
 }

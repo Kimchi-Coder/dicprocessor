@@ -3,9 +3,7 @@ using DicModels.XML;
 
 namespace DicModels;
 
-public class Lemma
+public class Lemma: BaseModel
 {
-   [Key] public Guid uuid { get; set; }
-   
-   public FeatXml FeatXml { get; set; }
+   public Feat Feat { get; set; }
 }

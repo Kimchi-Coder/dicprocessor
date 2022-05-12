@@ -2,9 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DicModels;
 
-public class Att
+public class Att: BaseModel
 {
-    [Key] public Guid uuid { get; set; }
-    
-    public UInt16 val { get; set; }
+    public string Attribute { get; set; }
 }

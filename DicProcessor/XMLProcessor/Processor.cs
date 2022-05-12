@@ -3,6 +3,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using DicModels;
+using DicModels.Builders;
 using DicModels.XML;
 
 namespace DicProcessor.XMLProcessor;
@@ -27,7 +28,7 @@ public class Processor
 
       // Declare an object variable of the type to be deserialized.
       LexicalResourceXml? i;
-      string path = "/home/jh/Documents/coding/DicProcessor/DicProcessor/XMLFiles/test.xml";
+      string path = "/home/jh/Documents/coding/DicProcessor/DicProcessor/XMLFiles/5000_.xml";
 
 
       XmlReaderSettings settings = new XmlReaderSettings();
@@ -41,16 +42,48 @@ public class Processor
       }
 
       // // Write out the properties of the object.
-      foreach (LexicalEntryXml element in i?.Lexicon?.LexicalEntries)
+      foreach (LexicalEntryXml element in i?.LexiconXml?.LexicalEntriesXml)
       {
-         Console.WriteLine($"{element.Att} ");
-         Console.WriteLine($"{element.Val} ");
-         foreach (FeatXml feat in element.Feats)
+         LexicalEntry newLexicalEntry = LexicalEntryBuilder.BuildLexicalEntry(element);
+         Console.WriteLine($"{newLexicalEntry.Att} ");
+         Console.WriteLine($"{newLexicalEntry.Val} ");
+         Console.WriteLine($"{newLexicalEntry.Lemma.Feat.Att}");
+         Console.WriteLine($"{newLexicalEntry.Lemma.Feat.Val}");
+         Console.WriteLine($"{newLexicalEntry.Senses}");
+         Console.WriteLine($"{newLexicalEntry.Val}");
+         foreach (Feat feat in newLexicalEntry.Feats)
          {
             Console.WriteLine($"{feat.Att} ");
             Console.WriteLine($"{feat.Val} ");
-
+         
          }
+
+         if (newLexicalEntry is {WordForm.Feats: { }})
+         {
+            foreach (Feat feat in newLexicalEntry.WordForm.Feats)
+            {
+               Console.WriteLine($"{feat.Att} ");
+               Console.WriteLine($"{feat.Val} ");
+         
+            }
+         }
+
+         if (newLexicalEntry is {Senses: { }})
+         {
+            foreach (Sense sense in newLexicalEntry.Senses)
+            {
+               if (sense.Equivalents != null)
+                  foreach (Equivalent equivalent in sense.Equivalents)
+                  {
+                     foreach (Feat feat in equivalent.Feats)
+                     {
+                        Console.WriteLine($"{feat.Att} ");
+                        Console.WriteLine($"{feat.Val} ");
+                     }
+                  }
+            }
+         }
+
       }
 
       static void ValidationCallBack(object sender, ValidationEventArgs e)

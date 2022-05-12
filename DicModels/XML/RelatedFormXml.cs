@@ -5,5 +5,5 @@ namespace DicModels.XML;
 [XmlRoot(ElementName = "RelatedForm")]
 public class RelatedFormXml
 {
-    [XmlElement(ElementName = "feat")] public List<FeatXml>? Feats { get; set; } 
+    [XmlElement(ElementName = "feat")] public List<FeatXml>? FeatsXml { get; set; } 
 }

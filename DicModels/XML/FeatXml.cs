@@ -6,8 +6,8 @@ namespace DicModels.XML;
     public class FeatXml { 
 
         [XmlAttribute(AttributeName="att")] 
-        public string? Att { get; set; } 
+        public string? AttXml { get; set; } 
 
         [XmlAttribute(AttributeName="val")] 
-        public string? Val { get; set; } 
+        public string? ValXml { get; set; } 
     }

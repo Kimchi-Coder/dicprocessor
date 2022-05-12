@@ -2,11 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DicModels;
 
-public class Feat
+public class Feat: BaseModel
 {
-    [Key] public Guid Uuid { get; set; }
+    public string? Att { get; set; }
     
-    public string Att { get; set; }
-    
-    public string Val { get; set; }
+    public string? Val { get; set; }
 }
