@@ -6,15 +6,20 @@ namespace DicModels;
 public class DicContext : DbContext
 {
     public DbSet<Att> Atts { get; set; }
-    public DbSet<EquivalentXml> Equivalents { get; set; }
+    public DbSet<Equivalent> Equivalents { get; set; }
     public DbSet<FeatXml> Feats { get; set; }
-    public DbSet<LexiconXml> Lexicon { get; set; }
-    public DbSet<LexicalEntryXml> LexicalEntries { get; set; }
+    public DbSet<FormRepresentation> FormRepresentations { get; set; }
     public DbSet<LemmaXml> Lemmas { get; set; }
-    public DbSet<WordFormXml> WordForms { get; set; }
+    public DbSet<LexicalEntry> LexicalEntries { get; set; }
+    public DbSet<Lexicon> Lexicons { get; set; }
+    // add lexical resource model
+    public DbSet<Multimedia> Multimedias { get; set; }
+    public DbSet<RelatedForm> RelatedForms { get; set; }
     public DbSet<SenseXml> Senses { get; set; }
-    public DbSet<SenseExampleXml> SenseExamples { get; set; }
+    public DbSet<SenseExample> SenseExamples { get; set; }
+    public DbSet<SenseRelation> SenseRelations { get; set; }
     public DbSet<Val> Vals { get; set; }
+    public DbSet<WordForm> WordForms { get; set; }
 
 
     public DicContext()

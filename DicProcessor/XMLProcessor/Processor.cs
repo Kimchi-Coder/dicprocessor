@@ -28,7 +28,7 @@ public class Processor
 
       // Declare an object variable of the type to be deserialized.
       LexicalResourceXml? i;
-      string path = "C:\\Code\\dicprocessor\\DicProcessor\\XMLFiles\\5000_.xml";
+      string path = "/home/jh/Documents/coding/DicProcessor/DicProcessor/XMLFiles/5000_.xml";
 
 
       XmlReaderSettings settings = new XmlReaderSettings();
