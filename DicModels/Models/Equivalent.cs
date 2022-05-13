@@ -4,5 +4,5 @@ namespace DicModels;
 
 public class Equivalent: BaseModel
 {
-    public List<Feat> Feats { get; set; }
+    public virtual List<Feat> Feats { get; set; }
 }

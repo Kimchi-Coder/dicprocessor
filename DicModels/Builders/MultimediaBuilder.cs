@@ -9,11 +9,11 @@ public class MultimediaBuilder
         Multimedia multimedia = new();
 
         multimedia.Feats = new List<Feat>();
+        if (m.FeatsXml == null) return multimedia;
         foreach (FeatXml featXml in m.FeatsXml)
         {
             Feat newFeat = FeatBuilder.BuildFeat(featXml);
             multimedia.Feats.Add(newFeat);
-
         }
 
         return multimedia;

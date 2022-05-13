@@ -7,7 +7,8 @@ public class LemmaBuilder
     public static Lemma BuildLemma(LemmaXml l)
     {
         Lemma lemma = new();
-        lemma.Feat = FeatBuilder.BuildFeat(l.FeatXml);
+        // double check here in future
+        if (l.FeatXml != null) lemma.Feat = FeatBuilder.BuildFeat(l.FeatXml);
 
         return lemma;
     }

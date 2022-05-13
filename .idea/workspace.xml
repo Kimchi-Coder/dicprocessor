@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dd0d246-394f-4ba4-a9bc-aa54c7fbb3d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DicModels/XML/EquivalentXml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DicModels/XML/EquivalentXml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DicModels/Models/Att.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DicModels/Models/Att.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +27,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -39,6 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652035940867</updated>
       <workItem from="1652035942074" duration="81000" />
+      <workItem from="1652404196710" duration="19000" />
     </task>
     <servers />
   </component>

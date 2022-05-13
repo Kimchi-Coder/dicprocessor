@@ -9,11 +9,11 @@ public class RelatedFormBuilder
         RelatedForm relatedForm = new();
 
         relatedForm.Feats = new List<Feat>();
+        if (r.FeatsXml == null) return relatedForm;
         foreach (FeatXml featXml in r.FeatsXml)
         {
             Feat newFeat = FeatBuilder.BuildFeat(featXml);
             relatedForm.Feats.Add(newFeat);
-
         }
 
         return relatedForm;

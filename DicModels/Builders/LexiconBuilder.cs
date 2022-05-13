@@ -9,10 +9,11 @@ public class LexiconBuilder
         Lexicon lexicon = new();
         
         //TODO: make sure null is dealt with
-        lexicon.Feat = FeatBuilder.BuildFeat(l.FeatXml);
+        if (l.FeatXml != null) lexicon.Feat = FeatBuilder.BuildFeat(l.FeatXml);
 
         //TODO: make sure null is dealt with
         lexicon.LexicalEntries = new List<LexicalEntry>();
+        if (l.LexicalEntriesXml == null) return lexicon;
         foreach (LexicalEntryXml entryXml in l.LexicalEntriesXml)
         {
             LexicalEntry newEntry = LexicalEntryBuilder.BuildLexicalEntry(entryXml);

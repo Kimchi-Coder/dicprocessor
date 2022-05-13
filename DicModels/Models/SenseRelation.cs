@@ -2,5 +2,5 @@ namespace DicModels;
 
 public class SenseRelation: BaseModel
 {
-    public List<Feat>? Feats { get; set; }
+    public virtual List<Feat>? Feats { get; set; }
 }

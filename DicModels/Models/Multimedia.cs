@@ -2,6 +2,6 @@ namespace DicModels;
 
 public class Multimedia: BaseModel
 {
-    public List<Feat>? Feats { get; set; }  
+    public virtual List<Feat>? Feats { get; set; }  
  
 }

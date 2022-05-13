@@ -8,7 +8,8 @@ public class SenseExampleBuilder
     {
         SenseExample senseExample = new();
         senseExample.Feats = new List<Feat>();
-        
+
+        if (s.FeatsXml == null) return senseExample;
         foreach (FeatXml featXml in s.FeatsXml)
         {
             Feat newFeat = FeatBuilder.BuildFeat(featXml);

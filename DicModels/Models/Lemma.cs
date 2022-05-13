@@ -5,5 +5,5 @@ namespace DicModels;
 
 public class Lemma: BaseModel
 {
-   public Feat Feat { get; set; }
+   public virtual Feat Feat { get; set; }
 }

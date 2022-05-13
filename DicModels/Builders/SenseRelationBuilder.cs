@@ -8,6 +8,7 @@ public class SenseRelationBuilder
     {
         SenseRelation senseRelation = new();
         senseRelation.Feats = new List<Feat>();
+        if (s.FeatsXml == null) return senseRelation;
         foreach (FeatXml featXml in s.FeatsXml)
         {
             Feat newFeat = FeatBuilder.BuildFeat(featXml);

@@ -8,10 +8,10 @@
 using System.Xml;
 using DicProcessor.XMLProcessor;
 
-public class Test
+public class Program
 {
     public static void Main()
     {
-        Processor.LoadAndSave();
+        // Processor.LoadAndSave();
     }
 }
