@@ -4,5 +4,5 @@ namespace DicModels;
 
 public class WordForm: BaseModel
 {
-   public virtual List<Feat> Feats { get; set; }
+   public virtual List<Feat>? Feats { get; set; }
 }

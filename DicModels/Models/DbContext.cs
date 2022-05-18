@@ -31,7 +31,7 @@ public class DicContext : DbContext
         // Use own connection string
         options.UseLazyLoadingProxies().UseSqlServer(
             // "Server=tcp:onesta.database.windows.net,1433;Initial Catalog=onesta-dev;Persist Security Info=False;User ID=onestadev;Password=YOURPASSWORD;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-            "Server=tcp:localhost,5432;Initial Catalog=learnerdic;User ID=postgres;Password=password;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;",
+            $"Server=tcp:learnersdic.database.windows.net,1433;Initial Catalog=learnersdic-sqldb;Persist Security Info=False;User ID=kimchiadmin;Password={yourpass};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
             builder => builder.EnableRetryOnFailure());
     }
 }
