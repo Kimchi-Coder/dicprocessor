@@ -10,8 +10,8 @@ using DicProcessor.XMLProcessor;
 
 public class Program
 {
-    public static void Main()
+    public static async Task Main()
     {
-        // Processor.LoadAndSave();
+        await Processor.LoadAndSave();
     }
 }

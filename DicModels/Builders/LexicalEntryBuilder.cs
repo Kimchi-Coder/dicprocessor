@@ -9,8 +9,8 @@ public class LexicalEntryBuilder
         LexicalEntry lexicalEntry = new();
         lexicalEntry.Att = l.AttXml ?? string.Empty;
         lexicalEntry.Val = l.ValXml ?? string.Empty;
-        if (l.LemmaXml != null) lexicalEntry.Lemma = LemmaBuilder.BuildLemma(l.LemmaXml);
-        if (l.WordFormXml != null) lexicalEntry.WordForm = WordFormBuilder.BuildWordForm(l.WordFormXml);
+        lexicalEntry.Lemma = l.LemmaXml != null ? LemmaBuilder.BuildLemma(l.LemmaXml) : new Lemma();
+        lexicalEntry.WordForm = l.WordFormXml != null ? WordFormBuilder.BuildWordForm(l.WordFormXml) : null;
 
         lexicalEntry.Feats = new List<Feat>();
         if (l.FeatsXml != null)
